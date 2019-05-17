@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+    start-time: <input type="text" id="start-time"><br/>
+    end-time: <input type="text" id="end-time"><br/>
+    Location: <input type="text" id="Location"><br/>
+    <input type="button" value="Criar" id="test"/>
+    <a href="https://outlook.office.com/owa//?path=/calendar/action/compose&rru=addevent&startdt=20190531T150000Z&enddt=20190531T170000Z&subject=Summary+of+the+event&location=Location+of+the+event&body=Description+of+the+event&allday=&uid=1558112926addeventcom">Outlook 365</a>
+  <script>
+	
+    $('#test').click(function(){
+    	var msgData1 = new Date($('#start-time').val()).toISOString();
+        console.log($('#start-time'));
+        alert(msgData1);
+        var msgData2 = new Date($('#end-time').val()).toISOString();
+        var msgData3 = $('#Location').val();
+
+        var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:20120315T170000Z\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + msgData1 +"\nDTEND:" + msgData2 +"\nLOCATION:" + msgData3 + "\nSUMMARY:Our Meeting Office\nEND:VEVENT\nEND:VCALENDAR";
+	
+        window.open( escape("https://outlook.office.com/owa//?path=/calendar/action/compose&rru=addevent&startdt=20190531T150000Z&enddt=20190531T170000Z&subject=Summary+of+the+event&location=Location+of+the+event&body=Description+of+the+event&allday=&uid=1558112926addeventcom"));
+    });
+
+  </script>
+</body>
+</html>
