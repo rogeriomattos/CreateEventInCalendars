@@ -44,6 +44,7 @@
     <div class="row">
       <input type="button" value="Outlook 365" id="outlook365"/>
       <input type="button" value="Google" id="google"/>
+      <input type="button" value="Outlook File ICS" id="fileIcs"/>
     </div>
   </div>
   <script>
@@ -68,22 +69,22 @@
 
     $("#google").click(function(){
       var startDateTime = new Date($('#start-time').val()).toISOString().replace(".000","").replace(/[^a-zA-Z0-9]/g, "");    
-      var endDateTime = new Date($('#end-time').val()).toISOString().replace(".000","").replace(/[^a-zA-Z0-9]/g, "");
-      
+      var endDateTime = new Date($('#end-time').val()).toISOString().replace(".000","").replace(/[^a-zA-Z0-9]/g, ""); 
       var location = $('#location').val();
       var summary = $('#summary').val();
       var body = $("#body").val();
       var allDay = $("#allDay").is(':checked');
-      console.log(allDay);
+            
       if(allDay){
         startDateTime = startDateTime.split("T")[0];
-        console.log(startDateTime);
+       
         endDateTime = new Date($('#start-time').val());
-        console.log(endDateTime);
+       
         endDateTime.setDate(endDateTime.getDate()+1);
-        console.log(endDateTime);
+       
         endDateTime = endDateTime.toISOString().replace(/[^a-zA-Z0-9]/g, "").split("T")[0];
       }
+      
       var query = "http://www.google.com/calendar/event?"+
                   "action=TEMPLATE"+
                   "&text="+summary+
@@ -94,7 +95,38 @@
     });
 
     $("#fileIcs").click(function(){
-      var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:20120315T170000Z\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + startDateTime +"\nDTEND:" + endDateTime +"\nLOCATION:" + location + "\nSUMMARY:Our Meeting Office\nEND:VEVENT\nEND:VCALENDAR";
+      var startDateTime = new Date($('#start-time').val()).toISOString();    
+      var endDateTime = new Date($('#end-time').val()).toISOString();
+      var location = $('#location').val();
+      var summary = $('#summary').val();
+      var body = $("#body").val();
+      var allDay = $("#allDay").is(':checked');
+      var today = new Date().toISOString();
+      var query = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//PT\n"+
+                    "BEGIN:VEVENT\nUID:"+
+                      "\nDTSTAMP:"+today+
+                      "\nATTENDEE;CN=My Self ;RSVP=TRUE"+
+                      "\nORGANIZER;CN=Me"+
+                      "\nDTSTART:" + startDateTime +
+                      "\nDTEND:" + endDateTime +
+                      "\nLOCATION:" + location + 
+                      "\nSUMMARY:"+ summary +
+                      "\nBODY:"+ body +
+                    "\nEND:VEVENT"+
+                  "\nEND:VCALENDAR";
+
+      var element = document.createElement('a');
+      element.setAttribute('href', "data:text/calendar;charset=utf8,"+escape(query));
+      element.setAttribute('download', "Evento");
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+      
+      //window.open();
     });
 
   </script>
