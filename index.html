@@ -9,35 +9,36 @@
 <body>
   <div class="wapper">
     <div class="row">
-        <div>Summary/Title:</div>
+        <div class="label">Summary/Title:</div>
         <div><input type="text" id="summary" value="Summary example"/></div>
     </div>
     <div class="row">
-        <div>Body:</div>
+        <div class="label">Body:</div>
         <div><input type="text" id="body" value="Body example"/></div>
     </div>
     <div class="row">
-        <div>Location:</div>
+        <div class="label">Location:</div>
         <div><input type="text" id="location" value="São Paulo"/></div>
     </div>
     <div class="row">
-        <div>Start Date Time:</div>
+        <div class="label">Start Date Time:</div>
         <div><input type="text" id="start-time" value="12/04/2019 00:00"/></div>
     </div>
     <div class="row">
-        <div>End Date Time:</div>
+        <div class="label">End Date Time:</div>
         <div><input type="text" id="end-time" value="12/06/2019 09:00"/></div>
     </div>
     
     <div class="row">
-        <div>AllDay (not work in google):</div>
-        <div><input type="checkbox" id="allDay" /></div>
+        <div class="label"><input type="checkbox" id="allDay" /> AllDay (not work in google)</div>
+     
     </div>
     
     <div class="row">
-      <input type="button" value="Outlook 365" id="outlook365"/>
-      <input type="button" value="Google" id="google"/>
-      <input type="button" value="Outlook File ICS" id="fileIcs"/>
+      <button type="button" id="google">Google</button>
+      <button type="button" id="outlook365">Outlook 365</button>
+      <button type="button" id="fileIcs">Outlook File ICS</button>
+      
     </div>
   </div>
  
