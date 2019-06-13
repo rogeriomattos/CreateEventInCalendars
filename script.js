@@ -1,56 +1,25 @@
-
-  
-$( document ).ready(function() {
-  
-
-    $('#outlook365').click(function(){
-        var event ={
-            startDateTime : new Date($('#start-time').val()).toISOString(),    
-            endDateTime : new Date($('#end-time').val()).toISOString(),
-            location : $('#location').val(),
-            summary : $('#summary').val(),
-            body : $("#body").val(),
-            allDay : $("#allDay").is(':checked'),
+    function createEvent(){
+        return {
+            startDateTime : new Date(document.getElementById("start-time").value).toISOString(),    
+            endDateTime : new Date(document.getElementById("end-time").value).toISOString(),
+            location :document.getElementById("location").value,
+            summary : document.getElementById("summary").value,
+            body : document.getElementById("body").value,
+            allDay : document.getElementById("allDay").checked,
+            today : new Date().toISOString()
         };
+    }
 
+    function addOutlook365(){
+        var event = createEvent();
         eventCalendar.openCalendar.outlook365(event);
-    });
+    }
 
-    $("#google").click(function(){
-        var event = {
-            startDateTime : new Date($('#start-time').val()).toISOString().replace(".000","").replace(/[^a-zA-Z0-9]/g, ""),    
-            endDateTime : new Date($('#end-time').val()).toISOString().replace(".000","").replace(/[^a-zA-Z0-9]/g, ""), 
-            location : $('#location').val(),
-            summary : $('#summary').val(),
-            body : $("#body").val(),
-            allDay : $("#allDay").is(':checked'),
-        } 
-        if(event.allDay){
-           event.startDateTime = event.startDateTime.split("T")[0];
-           
-           event.endDateTime = new Date($('#start-time').val());
-          
-           event.endDateTime.setDate(event.endDateTime.getDate()+1);
-          
-           event.endDateTime = event.endDateTime.toISOString().replace(/[^a-zA-Z0-9]/g, "").split("T")[0];
-        }
-        
+    function addGoogle(){
+        var event = createEvent();
         eventCalendar.openCalendar.google(event);
-        
-    });
-
-    $("#fileIcs").click(function(){
-        
-        var event ={
-            startDateTime : new Date($('#start-time').val()).toISOString(),    
-            endDateTime : new Date($('#end-time').val()).toISOString(),
-            location : $('#location').val(),
-            summary : $('#summary').val(),
-            body : $("#body").val(),
-            allDay : $("#allDay").is(':checked'),
-            today : new Date().toISOString(),
-        };
-
+    }
+    function addFileIcs(){
+        var event = createEvent();
         eventCalendar.openCalendar.ics(event);
-    });
-});
+    }

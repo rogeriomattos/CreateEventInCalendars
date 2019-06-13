@@ -2,12 +2,13 @@
 <html lang="pt-br">
 <head>
 <meta charset=”UTF-8”>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="./eventsCalendar.js"></script>
 
-<script src="./script.js"></script>
-<title>Create Event</title>
 <link href="./style.css"  rel="stylesheet" type="text/css"/>
+<script src="./eventsCalendar.js"></script>
+<script src="./script.js"></script>
+
+<title>Create Event</title>
+
 
 </head>
 <body>
@@ -34,14 +35,14 @@
     </div>
     
     <div class="row">
-        <div class="label"><input type="checkbox" id="allDay" /> AllDay (not work in google)</div>
+        <div class="label"><input type="checkbox" id="allDay" /> AllDay (not work in file ics)</div>
      
     </div>
     
     <div class="row">
-      <button type="button" id="google">Google</button>
-      <button type="button" id="outlook365">Outlook 365</button>
-      <button type="button" id="fileIcs">Outlook File ICS</button>
+      <button type="button" id="google" onclick="addGoogle()">Google</button>
+      <button type="button" id="outlook365" onclick="addOutlook365()">Outlook 365</button>
+      <button type="button" id="fileIcs" onclick="addFileIcs()">Outlook File ICS</button>
       
     </div>
   </div>
