@@ -32,23 +32,25 @@ input[type="text"]{
   padding: 4px;
   border-radius: 5px;
 }
-
-#google {
+.container-actions{
   text-align: center;
-  padding: 5px 5px 5px 0;
+}
+.container-actions>button {
+  text-align: center;
+  padding: 5px;
   background: white;
-  
+  cursor: pointer;
   box-sizing: border-box;
   line-height: 30px;
   position: relative;
 }
-#google img{
+.container-actions>button img{
   width: 20px;
   position: absolute;
   top: 50%;
   transform: translate(0%,-50%);
 }
-#google span{
+.container-actions>button span{
   padding-left: 25px;
   font-weight: 700;
 }

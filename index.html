@@ -3,9 +3,9 @@
 <head>
 <meta charset=”UTF-8”>
 
-<link href="./style.css"  rel="stylesheet" type="text/css"/>
-<script src="./eventsCalendar.js"></script>
-<script src="./script.js"></script>
+<link href="./css/style.css"  rel="stylesheet" type="text/css"/>
+<script src="./script/eventsCalendar.js"></script>
+<script src="./script/script.js"></script>
 
 <title>Create Event</title>
 
@@ -39,10 +39,21 @@
      
     </div>
     
-    <div class="row">
-      <button type="button" id="google" onclick="addGoogle()"><img src="./images/new-google-favicon-512.png"/><span>Google</span></button>
-      <button type="button" id="outlook365" onclick="addOutlook365()">Outlook 365</button>
-      <button type="button" id="fileIcs" onclick="addFileIcs()">Outlook File ICS</button>
+    <div class="row container-actions">
+      <button type="button" id="google" onclick="addGoogle()">
+        <img src="./images/google_solid_black.png"/>
+        <span>Google</span>
+      </button>
+      
+      <button type="button" id="outlook365" onclick="addOutlook365()">
+        <img src="./images/outlook_solid_black.png"/>
+        <span>Outlook 365</span>
+      </button>
+      
+      <button type="button" id="fileIcs" onclick="addFileIcs()">
+        <img src="./images/outlook_solid_black.png"/>
+        <span>Outlook File ICS</span>
+      </button>
       
     </div>
   </div>
