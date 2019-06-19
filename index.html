@@ -6,7 +6,15 @@
 <link href="./css/style.css"  rel="stylesheet" type="text/css"/>
 <script src="./script/eventsCalendar.js"></script>
 <script src="./script/script.js"></script>
-
+<link rel="stylesheet" href="./css/jquery-ui.css">
+  
+<script src="./script/jquery-1.12.4.js"></script>
+<script src="./script/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( ".datePicker" ).datepicker();
+} );
+</script>
 <title>Create Event</title>
 
 
@@ -27,11 +35,11 @@
     </div>
     <div class="row">
         <div class="label">Start Date Time:</div>
-        <div><input type="text" id="start-time" value="12/04/2019 00:00"/></div>
+        <div><input type="text" id="start-time" value="12/04/2019 00:00" class="datePicker"/></div>
     </div>
     <div class="row">
         <div class="label">End Date Time:</div>
-        <div><input type="text" id="end-time" value="12/06/2019 09:00"/></div>
+        <div><input type="text" id="end-time" value="12/06/2019 09:00" class="datePicker"/></div>
     </div>
     
     <div class="row">
