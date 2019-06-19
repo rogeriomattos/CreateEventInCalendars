@@ -12,14 +12,14 @@
 
     function addOutlook365(){
         var event = createEvent();
-        eventCalendar.openCalendar.outlook365(event);
+        openCalendar.outlook365(event);
     }
 
     function addGoogle(){
         var event = createEvent();
-        eventCalendar.openCalendar.google(event);
+        openCalendar.google(event);
     }
     function addFileIcs(){
         var event = createEvent();
-        eventCalendar.openCalendar.ics(event);
+        openCalendar.ics(event);
     }
